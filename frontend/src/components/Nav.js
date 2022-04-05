@@ -38,19 +38,20 @@ justify-content:space-around;
 
 const Input=styled.input`
 width:30%;
-padding:1em;
 border-radius:5px;
 border:none;
 outline:none;
+font-size:1.5rem;
+padding:.5em;
 `
 
 const ShopButton=styled.button`
-
-padding:1em;
 border-radius:5px;
 border:none;
 outline:none;
+padding:.5em;
 cursor:pointer;
+font-size:1.5rem;
 `
 
 const LisItems=styled.div`
@@ -66,8 +67,8 @@ height:40px;
 background:blue;
 color:gold;
 display:flex;
-align-items:center;
 justify-content:center;
+padding-top:0.5em;
 gap:1em;
 
 

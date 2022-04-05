@@ -26,3 +26,24 @@ a {
   object-fit: cover;
   object-position: center center;
 }
+
+.carousel-indicators button{
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50%;
+}
+
+.fDvbZl{
+  padding: 1em;
+  font-size: 1rem;
+} 
+
+.izVpcj{
+  padding: 1em;
+  font-size: 1rem;
+}
+.Ttxne{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
