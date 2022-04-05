@@ -1,0 +1,28 @@
+html,
+body {
+  
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.paragraph{
+  text-align: center;
+}
+
+.myimages{
+  height: 70vh;
+}
+
+.myimages img {
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center center;
+}
