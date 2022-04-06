@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Categories from "../src/components/Categories";
 import Nav from "../src/components/Nav";
 import SliderSection from "../src/components/SliderSection";
 import styles from "../styles/Home.module.css";
@@ -31,6 +32,7 @@ export default function Home() {
 
       <Nav />
       <SliderSection />
+      <Categories/>
     </div>
   );
 }

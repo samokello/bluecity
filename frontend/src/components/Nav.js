@@ -84,16 +84,15 @@ justify-content:space-between;
 
 const Categorycontainer=styled.div`
 margin:2em;
-background-color:red;
 cursor:pointer;
-border:2px solid darkgrey;
+color:gold;
 
 `
 
 const Imagecontainer=styled.div`
 width:100px;
 height:100px;
-border:2px solid darkgrey;
+
 
 `
 const Img = styled.img`
