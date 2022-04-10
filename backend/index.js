@@ -1,7 +1,9 @@
-const mongoose=require("mongoose")
-const express=require("express")
-const dotenv=require("dotenv")
-const cartRouter=require("./routes/cart")
+const mongoose=require("mongoose");
+const express=require("express");
+const dotenv=require("dotenv");
+// const userRouter = require("./routes/user");
+const authRouter =require("./routes/auth");
+const userRouter  = require("./routes/user");
 
 
 const app=express()
@@ -20,8 +22,11 @@ mongoose.connect(process.env.MONGO_URL)
  })
 
  app.use(express.json())
- app.get("/",(req,res)={
-     res,send(world)
+
+ app.get("/",(req,res)=>{
+     res.send()
  })
 
- app.use("/api/cart", cartRouter)
+  app.use("/api/user", userRouter)
+  app.use("/api/auth", authRouter)
+// app.use("/api/user", userRouter)

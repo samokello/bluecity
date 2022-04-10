@@ -1,56 +1,124 @@
 import React from "react";
 import styled from "styled-components";
-import Image from "next/image";
-import img2 from "../../public/images/glasses/glass5.jpg";
+
 
 
 const Catcontainer=styled.div`
 width:100%;
-background:red;
 `
 
 const Cat1 = styled.div`
-  background: url("images/glasses/glass5.jpg")
+  background: url("images/glasses/beer.jpg")
     no-repeat center center/cover;
+margin:2em;
+height:350px;
+width:350px
+`
 
-  height:300px;
-  width:300px
+const Cat2 = styled.div`
+  background: url("images/glasses/kk.jpg")
+    no-repeat center center/cover;
+margin:2em;
+height:350px;
+width:350px
+`
+
+const Cat3 = styled.div`
+  background: url("images/glasses/gg.jpg")
+    no-repeat center center/cover;
+margin:2em;
+height:350px;
+width:350px
+`
+
+
+const Cat4 = styled.div`
+  background: url("images/glasses/gl.jpg")
+    no-repeat center center/cover;
+margin:2em;
+height:350px;
+width:350px
+`
+
+const Cat5 = styled.div`
+  background: url("images/glasses/chi.jpg")
+    no-repeat center center/cover;
+margin:2em;
+height:350px;
+width:350px
 `;
 
 
+const Cat6 = styled.div`
+  background: url("images/glasses/glass2.jpg")
+    no-repeat center center/cover;
+margin:2em;
+  height:350px;
+  width:350px
+`;
+
+const Catbutton=styled.button`
+border-radius:5px;
+border:none;
+outline:none;
+padding:.5em;
+cursor:pointer;
+font-size:1.5rem;
+background:maroon;
+color:#fff;
+`
+const Catflex=styled.div`
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+width:80%;
+margin:0 auto;
+
+
+`
 
 const Categories=()=>{
     return(
         < Catcontainer>
-        <Cat1>
-            <button className="catButton">COGNAC</button>
+
+        <h1 className="cat-title">TOP CATEGORIES</h1>
+
+<Catflex>
+      
+        <Cat1 className="positioning">
+            <Catbutton className="catButton">Cognac</Catbutton>
         
         </Cat1>
             
-        <Cat1>
-            <button className="catButton">COGNAC</button>
+        <Cat2 className="positioning">
+            <Catbutton className="catButton">Wines</Catbutton>
         
-        </Cat1>
+        </Cat2>
 
-        <Cat1>
-            <button className="catButton">COGNAC</button>
+        <Cat3 className="positioning">
+            <Catbutton className="catButton">Vodka</Catbutton>
         
-        </Cat1>
+        </Cat3>
 
-        <Cat1>
-            <button className="catButton">COGNAC</button>
-        
-        </Cat1>
 
-        <Cat1>
-            <button className="catButton">COGNAC</button>
-        
-        </Cat1>
 
-        <Cat1>
-            <button className="catButton">COGNAC</button>
+
+        <Cat4 className="positioning">
+            <Catbutton className="catButton">Whisky</Catbutton>
         
-        </Cat1>
+        </Cat4>
+
+        <Cat5  className="positioning">
+            <Catbutton className="catButton">Champagne</Catbutton>
+        
+        </Cat5>
+
+        <Cat6 className="positioning">
+            <Catbutton className="catButton">COGNAC</Catbutton>
+        
+        </Cat6>
+
+</Catflex>
         </ Catcontainer>
     )
 }

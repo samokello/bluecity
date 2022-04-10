@@ -46,11 +46,170 @@ a {
   align-items: center;
   display: flex;
   justify-content: center;
+  justify-content: space-around;
 }
 
 .catButton{
   width: 50%;
-  display:flex ;
-  justify-content: center;
+  position: absolute;
+  top: 45%;
+  left: 25%;
+transform: scale(1);
+}
+
+.catButton:hover{
+  background-color: #fff;
+  color: maroon;
+ transition: ease-in-out;
+}
+
+.positioning{
+  position: relative;
+  border-radius: 5%;
+}
+
+.col{
+  width: 400px;
+  margin: 4em;
+ 
+}
+.card-text{
+  text-decoration: line-through;
+  color: red;
+}
+
+.card-title{
+  font-size: 2rem;
+  text-align: center;
+}
+
+.hot-paragraph{
+  font-size: 2rem;
+  display: flex;
+  gap: 2em;
   align-items: center;
+  justify-content: center;
+}
+
+.card-active{
+  color: green;
+}
+
+.hot-title{
+  text-align: center;
+  color: gold;
+}
+
+.cat-title{
+  text-align: center;
+  font-size: 2rem;
+  color: blue;
+}
+
+.slide{
+  width:80%;
+margin:0 auto;
+}
+
+.payment-holder{
+ border-radius: 5px;
+  width: 30%;
+}
+
+.display2{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border:darkgrey solid 2px;  
+  
+}
+
+.delivery-icons{
+  font-size: 3rem !important;
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  
+
+}
+
+.icons-holder {
+position: relative;
+}
+
+.footer-h3{
+  text-align: center;
+  color: gold;
+  font-size: 2rem;
+}
+
+input{
+  padding:.5em;
+  border-radius:5px;
+  font-size:1.5rem;
+  width: 60%;
+
+}
+.subscribe{
+  padding:.5em;
+  border-radius:5px;
+  border:darkgrey solid 2px;
+  font-size:1.5rem;
+  margin-left: 2em;
+}
+
+.footer-h4{
+  font-size: 2rem;
+  text-decoration: wavy;
+}
+
+.company{
+  font-size: 2rem;
+
+}
+.company-list{
+  cursor: pointer;
+  width: 30%;
+}
+
+.footer-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid darkgrey;
+  
+}
+
+.product1{
+  margin-top: 4em;
+}
+
+.footer-social-icons {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2em;
+
+}
+
+.icons1{
+  font-size: 4rem;
+cursor: pointer;
+transform: scale(1);
+}
+
+.icons1:hover{
+  transition: ease-in-out;
+}
+
+.copy{
+  background-color: blue;
+  color: gold;
+  font-size: 2rem;
+  padding: .01em;
+  margin-top: 1em;
+}
+
+.copy1{
+  text-align: center;
 }

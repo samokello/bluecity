@@ -16,6 +16,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
+
 `
 
 const Logocontainer=styled.div`
@@ -64,7 +65,7 @@ gap:0.4em
 const Delivery=styled.div`
 width:100%;
 height:40px;
-background:blue;
+background:maroon;
 color:gold;
 display:flex;
 justify-content:center;
@@ -74,10 +75,11 @@ gap:1em;
 
 `
 const Navcategories=styled.div`
-background:blue;
+background:maroon;
 display:flex;
 align-items:center;
 justify-content:space-between;
+color:#fff;
 
 
 `
@@ -104,6 +106,8 @@ object-fit:contain;
 
 const Navigation=styled.div`
 margin-bottom:1em;
+width:80%;
+margin:0 auto;
 `
 
 const Nav = () =>{

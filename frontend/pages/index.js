@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Categories from "../src/components/Categories";
+import Footer from "../src/components/Footer";
+import Hot from "../src/components/Hot";
 import Nav from "../src/components/Nav";
+import SignUp from "../src/components/SignUp";
 import SliderSection from "../src/components/SliderSection";
 import styles from "../styles/Home.module.css";
 
@@ -30,9 +33,13 @@ export default function Home() {
         ></link>
       </Head>
 
-      <Nav />
+      {/* <Nav />
       <SliderSection />
+      <Hot/>
       <Categories/>
+    <Footer/> */}
+
+    <SignUp/>
     </div>
   );
 }
