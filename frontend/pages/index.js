@@ -2,10 +2,63 @@ import Head from "next/head";
 import Categories from "../src/components/Categories";
 import Footer from "../src/components/Footer";
 import Hot from "../src/components/Hot";
+// import Login from "../src/components/Login";
 import Nav from "../src/components/Nav";
 import SignUp from "../src/components/SignUp";
 import SliderSection from "../src/components/SliderSection";
 import styles from "../styles/Home.module.css";
+import styled from "styled-components";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import Productcart from "../src/components/Productcart";
+import Login from "../src/components/Login";
+import Products from "../src/components/Products";
+
+
+
+const WhatsappContainer=styled.div`
+.whatsapp_float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.whatsapp-icon {
+  margin-top: 16px;
+}
+
+/* for mobile */
+@media screen and (max-width: 767px) {
+  .whatsapp-icon {
+      margin-top: 10px;
+  }
+
+  .whatsapp_float {
+      width: 40px;
+      height: 40px;
+      bottom: 20px;
+      right: 10px;
+      font-size: 22px;
+  }
+}
+
+
+
+
+`
+
+
+
+
+
 
 export default function Home() {
   return (
@@ -33,13 +86,37 @@ export default function Home() {
         ></link>
       </Head>
 
-      {/* <Nav />
+       {/* <Nav />
       <SliderSection />
       <Hot/>
-      <Categories/>
-    <Footer/> */}
+      <Categories/>  */}
+     {/* <SignUp/>
+     <Login/>    */}
+     {/* <Footer/>    */}
+<Products/>
+{/*  */}
 
-    <SignUp/>
+
+{/* 
+    <WhatsappContainer>
+
+<a
+        href="https://wa.me/254726964415"
+        className="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <WhatsAppIcon />
+      </a>
+
+
+
+
+
+</WhatsappContainer>  */}
+ 
+{/* <Productcart/> */}
+
     </div>
   );
 }

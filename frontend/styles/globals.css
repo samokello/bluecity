@@ -213,3 +213,338 @@ transform: scale(1);
 .copy1{
   text-align: center;
 }
+
+
+
+
+/*form sign up*/
+
+
+.form-content {
+    display: flex;
+    margin: 3em;
+    justify-content: space-between;
+    gap: 2em;
+   
+   
+ 
+  }
+
+.form-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+
+
+.signup-name {
+  display: flex;
+  gap: 2em;
+  width: 100%;
+  line-height: 2em;
+  font-size: 1.7rem;
+  
+}
+
+.passward-holder {
+  display: flex;
+  gap: 2em;
+}
+
+.signup-button {
+  padding: 1em;
+  font-size: 1em;
+  width: 100%;
+  cursor: pointer;
+  background-color: maroon;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  
+}
+
+.accounts input {
+  margin: 2em;
+  width: 100%;
+}
+
+
+.my-inputs {
+  margin-bottom: 2em;
+  line-height: 1em;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+
+
+
+
+
+input {
+  padding: 1em;
+  width: 100%;
+  outline: none;
+  border: none;
+   border-bottom: solid 2px blue;
+}
+
+
+
+
+
+
+.accounts {
+  background: linear-gradient(rgba(59, 119, 121, 0.8), rgba(50, 112, 114, 0.8)),url("../public/images/product1//hot2.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding:10%;
+  height: 90vh;
+border-radius: 5px;
+  align-items: center;
+
+}
+
+.accounts h1{
+    color: #fff;
+    text-align: center;
+}
+.have-account p a{
+    color: gold;
+    font-size: 1.3rem;
+}
+
+.have-account{
+    font-size: 2rem;
+}
+
+.position{
+    position: relative;
+    margin: 2em 0em;
+    
+}
+
+.icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size:2.5rem !important;
+    color: #fff;
+}
+
+.signup-name{
+  position: relative;
+}
+
+
+.correct-icon{
+  position:absolute;
+  top: 20%;
+  left:100%;
+  color: green;
+}
+
+
+
+/*login form*/
+
+.login-container{
+  background-color: #fff;
+  width: 100%;
+    display: flex;
+
+ 
+}
+
+.login-background{
+  background:linear-gradient(rgba(59, 119, 121, 0.8),rgba(50,112,114,0.8)) ,url("../public/images/product1/hot1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ width: 50%;
+ align-items: center;
+ justify-content: center;
+ display: flex;
+}
+
+.login-background *{
+  margin-top: 1em;
+  font-size: 2rem;
+}
+
+.passward-holder{
+  position: relative;
+}
+
+
+.eye-icon{
+  position: absolute;
+  top:30%;
+  left:95%;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.login-content{
+  width:50%;
+}
+
+.heading{
+  
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+}
+
+.text-cont{
+  text-align: center;
+}
+
+.text-pad{
+  margin-left: 1em;
+}
+
+.heading h1{
+  font-size: 3rem;
+  color: #fff;
+  width: 100%;
+}
+
+
+.create-account{
+  display: flex;
+justify-content: center;
+align-items: center;
+  gap: 2em;
+}
+
+.account{
+border: 2px solid blue;
+padding: 2em 4em;
+cursor: pointer;
+
+}
+
+
+.checkbox-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 3em 0em;
+}
+
+.passward{
+  width: 100%;
+  padding: 1em;
+  outline: none;
+  color: red;
+}
+
+.check{
+  display: flex;
+}
+
+
+form{
+  margin: 0em 3em;
+
+}
+
+
+.enterprise-title{
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.copyright{
+  text-align: center;
+  margin-top:15%;
+  font-size: 1.5rem;
+}
+
+.login-btn{
+  width: 100%;
+  padding: .8em;
+  background-color: maroon;
+border: none;
+color: #fff;
+  margin-top: 3em;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.link p a{
+  text-decoration: none;
+  color: rgba(50,112,114,0.8);
+}
+
+
+.btn-red{
+  border: none;
+  border-bottom: 2px solid darkgrey;
+margin-top: 1em;
+
+
+}
+
+.btn-red:focus {
+  border-bottom: 3px solid blue;
+}
+
+.empty-div{
+  background-color: blue;
+  width: 100%;
+  height: 8vh;
+
+}
+
+
+.form{
+  position: relative;
+  width: 100%;
+}
+
+.form__label:focus~.label{
+  visibility: visible;
+  top: 0;
+  left: 0;
+  color:gold;
+}
+
+.label {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  transition: all .5s ease;
+  color: darkgrey;
+  
+
+}
+
+
+
+/* @media query */
+@media(max-width:810px) {
+
+.login-container{
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+
+
+.login-background{
+  visibility: hidden;
+}
+
+.login-content{
+  width: 100%;
+}
+
+
+
+  
+}

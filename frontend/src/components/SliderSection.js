@@ -7,15 +7,15 @@ const SliderSection = () => {
   return (
     <div
       id="carouselExampleCaptions"
-      class="carousel slide"
+      className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div class="carousel-indicators">
+      <div className="carousel-indicators">
         <button
           type="button"
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="0"
-          class="active"
+          className="active"
           aria-current="true"
           aria-label="Slide 1"
         ></button>
@@ -63,64 +63,64 @@ const SliderSection = () => {
 
         
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active myimages">
+      <div className="carousel-inner">
+        <div className="carousel-item active myimages">
           <img
             src="images/glasses/glass3.jpg"
-            class="d-block w-100"
+            className="d-block w-100"
             alt="..."
           />
          
         </div>
-        <div class="carousel-item myimages">
+        <div className="carousel-item myimages">
           <img
             src="images/champagne/slider4.jpg"
-            class="d-block w-100"
+            className="d-block w-100"
             alt="..."
           />
          
         </div>
 
-        <div class="carousel-item myimages">
+        <div className="carousel-item myimages">
           <img
             src="images/champagne/slider3.jpg"
-            class="d-block w-100"
+            className="d-block w-100"
             alt="..."
           />
          
         </div>
 
-        <div class="carousel-item myimages">
+        <div className="carousel-item myimages">
           <img
             src="images/glasses/glass1.jpg"
-            class="d-block w-100"
+            className="d-block w-100"
             alt="..."
           />
          
         </div>
 
-        <div class="carousel-item myimages">
+        <div className="carousel-item myimages">
           <img
             src="images/champagne/slider1.jpg"
-            class="d-block w-100"
+            className="d-block w-100"
             alt="..."
           />
          
         </div>
 
-        <div class="carousel-item myimages">
+        <div className="carousel-item myimages">
           <img
             src="images/champagne/slider6.jpg"
-            class="d-block w-100"
+            className="d-block w-100"
             alt="..."
           />
          
         </div>
 
-        <div class="carousel-item myimages">
+        <div className="carousel-item myimages">
           <img
             src="images/glasses/glass4.jpg"
-            class="d-block w-100"
+            className="d-block w-100"
             alt="..."
           />
           
@@ -129,22 +129,22 @@ const SliderSection = () => {
 
       </div>
       <button
-        class="carousel-control-prev"
+        className="carousel-control-prev"
         type="button"
         data-bs-target="#carouselExampleCaptions"
         data-bs-slide="prev"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
       </button>
       <button
-        class="carousel-control-next"
+        className="carousel-control-next"
         type="button"
         data-bs-target="#carouselExampleCaptions"
         data-bs-slide="next"
       >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
       </button>
     </div>
   );
