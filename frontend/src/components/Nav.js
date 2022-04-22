@@ -106,8 +106,8 @@ object-fit:contain;
 
 const Navigation=styled.div`
 margin-bottom:1em;
-width:80%;
-margin:0 auto;
+width:100%;
+
 `
 
 const Nav = () =>{
@@ -156,7 +156,7 @@ const Nav = () =>{
 
 
         </Navcontainer>
-
+{/* 
         <Navcategories>
         <Categorycontainer>
             
@@ -208,7 +208,7 @@ const Nav = () =>{
 
 
 
- </Navcategories>
+ </Navcategories> */}
 
  
 

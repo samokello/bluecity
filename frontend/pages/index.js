@@ -86,15 +86,17 @@ export default function Home() {
         ></link>
       </Head>
 
-       {/* <Nav />
-      <SliderSection />
+        <Nav />
+        <Products/>
+      {/* <SliderSection />
       <Hot/>
-      <Categories/>  */}
-     {/* <SignUp/>
-     <Login/>    */}
-     {/* <Footer/>    */}
-<Products/>
-{/*  */}
+      <Categories/>  
+      <SignUp/>
+     <Login/>    
+      <Footer/>   
+
+ */}
+
 
 
 {/* 
