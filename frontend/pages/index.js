@@ -12,6 +12,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Productcart from "../src/components/Productcart";
 import Login from "../src/components/Login";
 import Products from "../src/components/Products";
+import ProductPost from "../src/components/Data";
 
 
 
@@ -86,16 +87,17 @@ export default function Home() {
         ></link>
       </Head>
 
-        <Nav />
+        {/* <Nav />
         <Products/>
-      {/* <SliderSection />
+      <SliderSection />
       <Hot/>
       <Categories/>  
       <SignUp/>
      <Login/>    
-      <Footer/>   
-
- */}
+      <Footer/>    */}
+      <Products/>
+<ProductPost/>
+ 
 
 
 
