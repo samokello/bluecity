@@ -548,3 +548,14 @@ margin-top: 1em;
 
   
 }
+
+/* product page styles starts*/
+.productname{
+text-align: center;
+
+}
+
+.shop-btn:hover{
+background-color: maroon;
+color: #fff;
+}

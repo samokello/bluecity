@@ -1,19 +1,14 @@
 import Head from "next/head";
-import Categories from "../src/components/Categories";
-import Footer from "../src/components/Footer";
-import Hot from "../src/components/Hot";
-// import Login from "../src/components/Login";
 import Nav from "../src/components/Nav";
-import SignUp from "../src/components/SignUp";
-import SliderSection from "../src/components/SliderSection";
+import Categories from "../src/components/Categories";
+
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import Productcart from "../src/components/Productcart";
-import Login from "../src/components/Login";
-import Products from "../src/components/Products";
-import ProductPost from "../src/components/Data";
 
+
+
+// const [Cartlist, setCartlist] = useState([]);
 
 
 const WhatsappContainer=styled.div`
@@ -86,25 +81,10 @@ export default function Home() {
           crossorigin="anonymous"
         ></link>
       </Head>
-
-        {/* <Nav />
-        <Products/>
-      <SliderSection />
-      <Hot/>
-      <Categories/>  
-      <SignUp/>
-     <Login/>    
-      <Footer/>    */}
-      <Products/>
-<ProductPost/>
- 
-
-
-
-{/* 
+      <Nav/>
+     <Categories/>
     <WhatsappContainer>
-
-<a
+      <a
         href="https://wa.me/254726964415"
         className="whatsapp_float"
         target="_blank"
@@ -112,14 +92,9 @@ export default function Home() {
       >
         <WhatsAppIcon />
       </a>
-
-
-
-
-
-</WhatsappContainer>  */}
+</WhatsappContainer>  
  
-{/* <Productcart/> */}
+
 
     </div>
   );

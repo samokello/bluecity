@@ -71,8 +71,7 @@ const Catflex=styled.div`
 display:flex;
 flex-wrap:wrap;
 align-items:center;
-width:80%;
-margin:0 auto;
+
 
 
 `
