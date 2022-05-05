@@ -5,15 +5,20 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import img3 from "../../public/logo/logo1.svg";
+import img4 from "../../public/icons/m-pesa.png"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-
+import Link from "next/link";
 
 const Footercontainer=styled.div`
-width:80%;
-margin:0 auto;
+
+background:#000;
+color:#fff;
+
+padding:2em;
+border-radius:5px
 
 
 `
@@ -37,7 +42,12 @@ justify-content:center;
 const Logocontainer=styled.div`
 width:200px;
 display:flex;
-border:2px solid gold;
+&:hover {
+    transform: translate(1% );
+    transition: 0.1s ease-in;
+  }
+margin:2em;
+cursor:pointer;
 border-radius:50%;  
 `
 
@@ -59,16 +69,18 @@ padding:.5em;
 
 const Footer =()=>{
     return(
+
+        <div>
         <Footercontainer>
 
 <div className="display2">
 
            <div className="payment-holder">
-               <h3 className="footer-h3">Payment Methods</h3>
+               <h3 style={{textAlign:"center"}}>Payment Methods</h3>
 
 <PaymentDisplay>
                <ImgCont>
-               <Img src="icons/mpesa.png"/>
+               <Img src="icons/m-pesa.png"/>
                </ImgCont>
 
 
@@ -92,7 +104,7 @@ const Footer =()=>{
 
 
            <div className="payment-holder">
-               <h3 className="footer-h3">Delivery Methods</h3>
+               <h3 style={{textAlign:"center"}}>Delivery Methods</h3>
 
 <PaymentDisplay>
                <ImgCont className="icons-holder">
@@ -119,28 +131,39 @@ const Footer =()=>{
 
 
 
-<div className="footer-list">
+<div style={{borderBottom:"1px solid darkgrey",display:"flex",alignItems:"center",gap:"4em", width:"80%",margin:"0 auto",justifyContent:"space-between"}}>
 
 <div>
+
+    <Link href={"/"}>
 <Logocontainer>
 
 <Image src={img3} />
 </Logocontainer>
+</Link>
+
+<div style={{marginLeft:"2em"}}>
 
 
-<h4 className="footer-h4">For The latest apdates ? Subscribe to our Newsletter.</h4>
+<h4 >For The latest apdates ? Subscribe to our Newsletter.</h4>
+<div  style={{display:"flex", width:"100%"}}>
 
-<input type="text" placeholder="Enter email"  />
+<input type="text" placeholder="Enter email" style={{width:"80%"}} />
 <button className="subscribe">Subscribe</button>
+
+</div>
+</div>
 </div>
 
 
 <div>
 
-    <p className="company">Company</p>
-    <p className="company-list">Company</p>
-    <p  className="company-list">Company</p>
-    <p  className="company-list">Company</p>
+    <p className="company">About Us</p>
+    <p className="company-list">Vission</p>
+    <p  className="company-list">Mission</p>
+    <p  className="company-list">Value</p>
+    <p  className="company-list">Responsibility</p>
+
   
 
     
@@ -154,24 +177,28 @@ const Footer =()=>{
     <p  className="company-list">Champagne</p>
     <p  className="company-list">Beer</p>
     <p  className="company-list">Vodka</p>
+    <p  className="company-list">Cognac</p>
+
   
 
     
 </div>
 </div>
 
-<div className="footer-social-icons">
-<FacebookIcon className="icons1"/>
-<TwitterIcon className="icons1"/>
-<InstagramIcon className="icons1"/>
-<WhatsAppIcon className="icons1"/>
+<div style={{display:"flex",fontSize:"2em",gap:"2em",cursor:"pointer",alignItems:"center",justifyContent:"center",marginTop:"1em"}}>
+<FacebookIcon />
+<TwitterIcon />
+<InstagramIcon />
+<WhatsAppIcon />
 </div>
 
 
-<div className="copy">
-  <p className="copy1">  Blue City Invetment LTD &copy; 2022</p>
-    </div>
+
         </Footercontainer>
+        <div style={{background:"maroon",fontSize:"1.5rem",textAlign:"center",color:"#fff"}}>
+  <p >  Blue City Invetment LTD &copy; 2022</p>
+    </div>
+        </div>
     )
 }
 

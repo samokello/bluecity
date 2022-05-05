@@ -3,9 +3,15 @@ import styled from "styled-components";
 import Image from "next/image";
 import img2 from "../../public/images/glasses/glass1.jpg";
 
+
+const SliderHolder=styled.div`
+width:100%;
+
+
+`
 const SliderSection = () => {
   return (
-    <div
+    <SliderHolder
       id="carouselExampleCaptions"
       className="carousel slide"
       data-bs-ride="carousel"
@@ -90,9 +96,9 @@ const SliderSection = () => {
          
         </div>
 
-        <div className="carousel-item myimages">
+        <div className="carousel-item myimages" style={{}}>
           <img
-            src="images/glasses/glass1.jpg"
+            src="images/beer/ll.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -119,7 +125,7 @@ const SliderSection = () => {
 
         <div className="carousel-item myimages">
           <img
-            src="images/glasses/glass4.jpg"
+            src="images/beer/yy.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -146,7 +152,7 @@ const SliderSection = () => {
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
       </button>
-    </div>
+    </SliderHolder>
   );
 };
 

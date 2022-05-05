@@ -1,10 +1,12 @@
-import React from "react";
+import React ,{useEffect,useS} from "react";
 import styled from "styled-components";
 
 
 
 const Catcontainer=styled.div`
-width:100%;
+width:80%;
+margin:0 auto
+
 `
 
 const Cat1 = styled.div`
@@ -76,11 +78,14 @@ align-items:center;
 
 `
 
+
+
+
 const Categories=()=>{
     return(
         < Catcontainer>
 
-        <h1 className="cat-title">TOP CATEGORIES</h1>
+        <h1 className="cat-title" style={{marginTop:"2em"}}>TOP CATEGORIES</h1>
 
 <Catflex>
       
@@ -113,7 +118,7 @@ const Categories=()=>{
         </Cat5>
 
         <Cat6 className="positioning">
-            <Catbutton className="catButton">COGNAC</Catbutton>
+            <Catbutton className="catButton">Beer</Catbutton>
         
         </Cat6>
 

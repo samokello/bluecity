@@ -1,62 +1,75 @@
 import Head from "next/head";
 import Nav from "../src/components/Nav";
+import axios from "axios";
 import Categories from "../src/components/Categories";
-
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import ProductContext from "../src/ProductState";
+import { useEffect, useState } from "react";
+import SliderSection from "../src/components/SliderSection";
+import Footer from "../src/components/Footer";
 
-
-
-// const [Cartlist, setCartlist] = useState([]);
-
-
-const WhatsappContainer=styled.div`
-.whatsapp_float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 40px;
-  right: 40px;
-  background-color: #25d366;
-  color: #FFF;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 3px #999;
-  z-index: 100;
+const WhatsappContainer = styled.div`
+  .whatsapp_float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    transition: ease background-color 250ms;
+&:hover {
+  transform: translate( -20%,20% );
+  transition: 0.1s ease-in;
 }
-
-.whatsapp-icon {
-  margin-top: 16px;
-}
-
-/* for mobile */
-@media screen and (max-width: 767px) {
-  .whatsapp-icon {
-      margin-top: 10px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
   }
 
-  .whatsapp_float {
+  .whatsapp-icon {
+    margin-top: 16px;
+  }
+
+  /* for mobile */
+  @media screen and (max-width: 767px) {
+    .whatsapp-icon {
+      margin-top: 10px;
+    }
+
+    .whatsapp_float {
       width: 40px;
       height: 40px;
       bottom: 20px;
       right: 10px;
       font-size: 22px;
+    }
   }
-}
+`;
 
-
-
-
-`
-
-
-
-
+// const [darktheme,setDarkTheme]=useState(true)
+//   const [theme,setTheme]=useState({
+//         primaryColor:"#1F1D36",
+//         secondaryColor:"#302D4E",
+//         text:"#fff"
+//   })
 
 
 export default function Home() {
+  const [products, setProducts] = useState();
+  const [productlist, setProductlist]= useState([]);
+const url="https://immense-peak-73012.herokuapp.com/api/products"
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setProductlist(res.data);
+    });
+    console.log(productlist)
+  }, [url]);
   return (
     <div className={styles.container}>
       <Head>
@@ -72,7 +85,6 @@ export default function Home() {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
         />
-       
 
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -81,19 +93,20 @@ export default function Home() {
           crossorigin="anonymous"
         ></link>
       </Head>
-      <Nav/>
-     <Categories/>
-    <WhatsappContainer>
-      <a
-        href="https://wa.me/254726964415"
-        className="whatsapp_float"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <WhatsAppIcon />
-      </a>
-</WhatsappContainer>  
- 
+      <Nav />
+      <SliderSection/>
+      <Categories />
+<Footer/>
+      <WhatsappContainer>
+        <a
+          href="https://wa.me/254726964415"
+          className="whatsapp_float"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <WhatsAppIcon />
+        </a>
+      </WhatsappContainer> 
 
 
     </div>

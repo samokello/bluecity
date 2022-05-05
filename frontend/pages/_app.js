@@ -1,11 +1,11 @@
 import "../styles/globals.css";
 import React from "react";
-import { CartHelper } from "../src/CartState";
+import { BluecityHelper } from "../src/bluecityState";
 
 function MyApp({ Component, pageProps }) {
-  return <CartHelper>
+  return <BluecityHelper>
     <Component {...pageProps} />
-  </CartHelper>;
+  </BluecityHelper>;
 }
 
 export default MyApp;
