@@ -244,21 +244,7 @@ const Products = () => {
                   justifyContent: "center",
                   margin: "1em",
                 }}
-              >
-                <WhatsAppIcon
-                  style={{
-                    fontSize: "1.5em",
-                    cursor: "pointer",
-                    color: "#06FF00",
-                  }}
-                />
-                <FavoriteBorderIcon
-                  style={{ fontSize: "1.5em", cursor: "pointer", color: "red" }}
-                />
-                <ShoppingCartIcon
-                  style={{ fontSize: "1.5em", cursor: "pointer" }}
-                />
-              </div>
+              ></div>
             </div>
 
             <div
@@ -272,29 +258,7 @@ const Products = () => {
             >
               <img src={item.spimages[1]} width="300" height="300" />
 
-              <div
-                style={{
-                  fontSize: "2em",
-                  display: "flex",
-                  gap: "2em",
-                  justifyContent: "center",
-                  margin: "1em",
-                }}
-              >
-                <WhatsAppIcon
-                  style={{
-                    fontSize: "1.5em",
-                    cursor: "pointer",
-                    color: "#06FF00",
-                  }}
-                />
-                <FavoriteBorderIcon
-                  style={{ fontSize: "1.5em", cursor: "pointer", color: "red" }}
-                />
-                <ShoppingCartIcon
-                  style={{ fontSize: "1.5em", cursor: "pointer" }}
-                />
-              </div>
+            
             </div>
 
             <div
@@ -309,29 +273,7 @@ const Products = () => {
             >
               <img src={item.spimages[2]} width="300" height="300" />
 
-              <div
-                style={{
-                  fontSize: "2em",
-                  display: "flex",
-                  gap: "2em",
-                  justifyContent: "center",
-                  margin: "1em",
-                }}
-              >
-                <WhatsAppIcon
-                  style={{
-                    fontSize: "1.5em",
-                    cursor: "pointer",
-                    color: "#06FF00",
-                  }}
-                />
-                <FavoriteBorderIcon
-                  style={{ fontSize: "1.5em", cursor: "pointer", color: "red" }}
-                />
-                <ShoppingCartIcon
-                  style={{ fontSize: "1.5em", cursor: "pointer" }}
-                />
-              </div>
+            
             </div>
           </ListImage>
 

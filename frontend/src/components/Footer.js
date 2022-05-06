@@ -35,7 +35,7 @@ cursor: pointer;
 const PaymentDisplay=styled.div`
 display:flex;
 align-items:center;
-gap:2em;
+gap:2em;    
 justify-content:center;
 
 `
@@ -80,16 +80,16 @@ const Footer =()=>{
 
 <PaymentDisplay>
                <ImgCont>
-               <Img src="icons/m-pesa.png"/>
+               <Img src="/icons/m-pesa.png"/>
                </ImgCont>
 
 
                <ImgCont>
-               <Img src="icons/visa.svg"/>
+               <Img src="/icons/visa.svg"/>
                </ImgCont>
 
                <ImgCont>
-               <Img src="icons/master-card.svg"/>
+               <Img src="/icons/master-card.svg"/>
 
                </ImgCont>
 
@@ -131,7 +131,7 @@ const Footer =()=>{
 
 
 
-<div style={{borderBottom:"1px solid darkgrey",display:"flex",alignItems:"center",gap:"4em", width:"80%",margin:"0 auto",justifyContent:"space-between"}}>
+<div style={{borderBottom:"1px solid darkgrey",display:"flex",alignItems:"center",gap:"4em", width:"60%",margin:"0 auto",justifyContent:"space-between"}}>
 
 <div>
 
@@ -172,14 +172,26 @@ const Footer =()=>{
 <div className="product1">
 
     <p className="company">Products</p>
+
+    <div style={{display:"flex",alignItems:"center",gap:"2em"}}>
+        <div>
     <p className="company-list">Whisky</p>
     <p  className="company-list">Wine</p>
     <p  className="company-list">Champagne</p>
+    <p  className="company-list">Spirits</p>
+    <p  className="company-list">Juice </p>
+
+
+
+</div>
+    <div>
     <p  className="company-list">Beer</p>
     <p  className="company-list">Vodka</p>
     <p  className="company-list">Cognac</p>
-
+</div>
   
+    </div>
+ 
 
     
 </div>
@@ -196,7 +208,7 @@ const Footer =()=>{
 
         </Footercontainer>
         <div style={{background:"maroon",fontSize:"1.5rem",textAlign:"center",color:"#fff"}}>
-  <p >  Blue City Invetment LTD &copy; 2022</p>
+  <p style={{marginBottom:"0 !important"}}>  Blue City Invetment LTD &copy; 2022</p>
     </div>
         </div>
     )

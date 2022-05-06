@@ -82,6 +82,7 @@ align-items:center;
 
 
 const Categories=()=>{
+  
     return(
         < Catcontainer>
 

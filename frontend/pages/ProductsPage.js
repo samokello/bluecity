@@ -6,20 +6,16 @@ import Nav from "../src/components/Nav";
 import BluecityContext from "../src/bluecityState";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Footer from "../src/components/Footer";
-
-
-
-
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Pcontainer = styled.div`
   width: 90%;
- margin:0 auto;
-  flex-wrap:wrap;
-
+  margin: 0 auto;
+  flex-wrap: wrap;
   color: #000;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   gap: 2em;
   background: #fff;
 `;
@@ -30,15 +26,15 @@ const ImageContainer = styled.div`
 
 const HotHolder = styled.div`
   width: 20%;
-  cursor:pointer;
-box-shadow:2px 2px 2px 2px  darkgrey;
-border:1px solid darkgray;
-transition: ease background-color 250ms;
-&:hover {
-  transform: translate(1%);
-  transition: .5s ease-out;
-}
-`
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px darkgrey;
+  border: 1px solid darkgray;
+  transition: ease background-color 250ms;
+  &:hover {
+    transform: translate(1%);
+    transition: 0.5s ease-out;
+  }
+`;
 const Image = styled.img`
   width: 100%;
   height: 200px;
@@ -47,30 +43,28 @@ const Image = styled.img`
 
 const Flex = styled.div`
   justify-content: center;
-  padding:.5em;
-  text-align:center
-
+  padding: 0.5em;
+  text-align: center;
 `;
 
 const Hotbutton = styled.button`
   border: none;
   outline: none;
   padding: 0.5em;
-  margin:1em;
+  margin: 1em;
   cursor: pointer;
- padding:1em;
+  padding: 1em;
   background: maroon;
-  width:50%%;
+  width: 50%%;
   color: #fff;
-  border-radius:5px;
+  border-radius: 5px;
 `;
-const ButtonHolder=styled.div`
-display:flex;
-gap:1em;
-align-items:center;
-justify-content:center;
-
-`
+const ButtonHolder = styled.div`
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+`;
 
 const WhatsappContainer = styled.div`
   .whatsapp_float {
@@ -108,13 +102,13 @@ const WhatsappContainer = styled.div`
   }
 `;
 
-
-
 export default function ProductPage() {
+  const [category, setCategory] = useState("");
 
+  const [favorite, setFavorite] = useState([]);
+  const [productsCopy, setProductsCopy] = useState([]);
 
-
-  const {cartState, productState} = useContext(BluecityContext)
+  const { cartState, productState } = useContext(BluecityContext);
 
   const [cart, setCart] = cartState;
 
@@ -124,9 +118,11 @@ export default function ProductPage() {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      setProducts(res.data)
+      setProducts(res.data);
     });
-  },);
+
+    setProductsCopy([...products]);
+  }, []);
 
   // console.log(cart);
 
@@ -139,20 +135,40 @@ export default function ProductPage() {
     }
   };
 
- const handleCheckout=(e)=> {
-    alert("You have Clicked shop now button")
-  
-}
+  const handleCheckout = (e) => {
+    e.preventDefault();
+
+    setCategory(e.target.innerText.toLowerCase());
+  };
+
+  const addToFavorite = (e) => {
+    alert("You have clicked Favorite icon");
+  };
+
+  const removeFavorite = (e) => {};
+
   return (
-
     <div>
-
-      {console.log(products.name)}
       <Nav />
-      <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"2em"}}>
-      <h4 style={{fontSize:"2rem",textAlign:"center"}}>Filter By Category</h4>
-      <div>
-      {/* <select style={{width:"200px",padding:"1em",fontSize:"1rem",borderRadius:"5px"}}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "2em",
+        }}
+      >
+        <h4
+          style={{
+            fontSize: "2rem",
+            textAlign: "center",
+            fontFamily: "Yanone Kaffeesatz sans-serif",
+          }}
+        >
+          Filter By Category
+        </h4>
+        <div>
+          {/* <select style={{width:"200px",padding:"1em",fontSize:"1rem",borderRadius:"5px"}}>
   <option value="A">Wines</option>
   <option value="B">Vodka</option>
   <option value="C">Chamagne</option>
@@ -162,53 +178,88 @@ export default function ProductPage() {
   <option value="F">Cognac</option>
 
 </select> */}
-<div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:"2em"}}>
-{/* <button>All Products</button> */}
-<button>Whisky</button>
-<button>Wines</button>
-<button>Beer</button>
-<button>Vodka</button>
-<button>Cognac</button>
-<button>Chamagne</button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "2em",
+            }}
+          >
+            {/* <button>All Products</button> */}
+            <button
+              style={{ padding: ".5em", cursor: "pointer" }}
+              onClick={(e) => handleCheckout(e)}
+            >
+              All{" "}
+            </button>
 
-</div>
-
-
-
-
-
-
-
-</div>
-</div>
+            <button
+              style={{ padding: ".5em", cursor: "pointer" }}
+              onClick={(e) => handleCheckout(e)}
+            >
+              Whisky
+            </button>
+            <button
+              style={{ padding: ".5em", cursor: "pointer" }}
+              onClick={(e) => handleCheckout(e)}
+            >
+              Wine
+            </button>
+            <button
+              style={{ padding: ".5em", cursor: "pointer" }}
+              onClick={(e) => handleCheckout(e)}
+            >
+              Beer
+            </button>
+            <button
+              style={{ padding: ".5em", cursor: "pointer" }}
+              onClick={(e) => handleCheckout(e)}
+            >
+              Vodka
+            </button>
+            <button
+              style={{ padding: ".5em", cursor: "pointer" }}
+              onClick={(e) => handleCheckout(e)}
+            >
+              Cognac
+            </button>
+            <button
+              style={{ padding: ".5em", cursor: "pointer" }}
+              onClick={(e) => handleCheckout(e)}
+            >
+              Champagne
+            </button>
+          </div>
+        </div>
+      </div>
       <Pcontainer>
-      
-        {products.map((item) => (
+        {products.map((item) => {
+          if (category === "" || category.toLocaleLowerCase() === "all") {
+            return (
+              <HotHolder>
+                {/* <ImageContainer> */}
+                <Link href={`/products/${item._id}`}>
+                  <Image src={item.image} />
+                </Link>
 
+                {/* </ImageContainer> */}
 
-          <HotHolder>
-           
-              {/* <ImageContainer> */}
-              <Link href={`/products/${item._id}`}>
+                <Flex>
+                  <h3 className="productname">{item.name}</h3>
+                  <p>Ksh. {item.salesprice}</p>
+                </Flex>
+                <ButtonHolder>
+                  <Link href={"/Checkout"}>
+                    <Hotbutton
+                      className="shop-btn"
+                      // onClick={(e)=>handleCheckout()}
+                    >
+                      Shop now
+                    </Hotbutton>
+                  </Link>
 
-              <Image src={item.image} />
-              </Link>
-
-            {/* </ImageContainer> */}
-
-            <Flex>
-              <h3 className="productname">{item.name}</h3>
-              <p>Ksh. {item.salesprice}</p>
-            </Flex>
-<ButtonHolder>
-
-<Link href={"/Checkout"}>
-<Hotbutton className="shop-btn" 
-// onClick={(e)=>handleCheckout()}
->Shop now</Hotbutton>
-</Link>
-
-<Hotbutton
+                  <Hotbutton
                     onClick={(e) => handleClick(e, item)}
                     className="addtocart"
                   >
@@ -217,15 +268,63 @@ export default function ProductPage() {
                       : "Add to cart"}
                   </Hotbutton>
 
-</ButtonHolder>
+                  <Link href={"/Favorite"}>
+                    <FavoriteBorderIcon
+                      style={{ color: "red", fontSize: "2rem" }}
+                    />
+                  </Link>
+                </ButtonHolder>
 
-          </HotHolder>
+                {/* <input style={{padding:".5em",cursor:"pointer"}} type="button" value="whisky" onClick={(e)=>handleCheckout(item.category)}/> */}
+              </HotHolder>
+            );
+          } else if (item.category.toLowerCase() === category.toLowerCase()) {
 
+            return (
+            <HotHolder>
+              {/* <ImageContainer> */}
+              <Link href={`/products/${item._id}`}>
+                <Image src={item.image} />
+              </Link>
 
-        ))}
+              {/* </ImageContainer> */}
+
+              <Flex>
+                <h3 className="productname">{item.name}</h3>
+                <p>Ksh. {item.salesprice}</p>
+              </Flex>
+              <ButtonHolder>
+                <Link href={"/Checkout"}>
+                  <Hotbutton
+                    className="shop-btn"
+                    // onClick={(e)=>handleCheckout()}
+                  >
+                    Shop now
+                  </Hotbutton>
+                </Link>
+
+                <Hotbutton
+                  onClick={(e) => handleClick(e, item)}
+                  className="addtocart"
+                >
+                  {cart.some((cartItem) => cartItem._id === item._id)
+                    ? "Added to cart"
+                    : "Add to cart"}
+                </Hotbutton>
+
+                <Link href={"/Favorite"}>
+                  <FavoriteBorderIcon
+                    style={{ color: "red", fontSize: "2rem" }}
+                  />
+                </Link>
+              </ButtonHolder>
+
+              {/* <input style={{padding:".5em",cursor:"pointer"}} type="button" value="whisky" onClick={(e)=>handleCheckout(item.category)}/> */}
+            </HotHolder>
+            )
+          }
+        })}
       </Pcontainer>
-
-
 
       <WhatsappContainer>
         <a
@@ -236,11 +335,9 @@ export default function ProductPage() {
         >
           <WhatsAppIcon />
         </a>
-      </WhatsappContainer> 
+      </WhatsappContainer>
 
-
-<Footer/>
-
+      <Footer />
     </div>
   );
 }

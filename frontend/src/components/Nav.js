@@ -5,18 +5,18 @@ import img1 from "../../public/logo/logo1.svg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SwitchAccountIcon from "@mui/icons-material/SwitchAccount";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import Badge from "@mui/material/Badge";
 import BluecityContext from "../bluecityState";
 import Link from "next/link";
 import SearchIcon from '@mui/icons-material/Search';
 
 const Navcontainer = styled.div`
- 
+ background:maroon;
   font-size: 2rem;
   display: flex;
   width:100%;
-  justify-content:space-around
+  justify-content:space-around;
+ 
 
 `;
 
@@ -51,9 +51,10 @@ const Input = styled.input`
 const LisItems = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.4em;
+ 
   justify-content:space-between;
-  font-size:1.5rem
+  font-size:1.5rem;
+  color:#fff;
 `;
 
 const Delivery = styled.div`
@@ -119,13 +120,12 @@ const Nav = () => {
   const {cartState, productState} = useContext(BluecityContext)
 
   const [cart, setCart] = cartState;
-  console.log(cart);
   const [isShown, setIsShown]=useState(false)
 
   useEffect(() => {
     // Perform localStorage action
     const local = localStorage.getItem(cart.length);
-    console.log(local);
+    // console.log(local);
   }, []);
 
   return (
@@ -138,20 +138,20 @@ const Nav = () => {
           </Link>
         </Logocontainer>
 
-        <div style={{width:"30%",display:"flex",alignItems:"center",fontSize:"2rem"}}>
+        <div style={{width:"35%",display:"flex",alignItems:"center",fontSize:"2rem"}}>
 
         <Input type="text" placeholder="Search Products" style={{width:"100%",position:"relative"}} />
-        <SearchIcon style={{fontSize:"2rem",position:"absolute",right:"45%"}}/>
+        <SearchIcon style={{fontSize:"2rem",position:"absolute",right:"41%",color:"darkgrey"}}/>
         </div>
         
           
-       <div style={{marginTop:"1em"}}>
-       <Link href={"/ProductsPage"}>Shop</Link>
+       <div style={{marginTop:"1.5em",color:"#fff"}}>
+       <Link href={"/ProductsPage"}>Our Products</Link>
 
        </div>
 
         <Ulcontainer>
-          <LisItems>
+          <LisItems style={{display:"flex",alignItems:"center"}}>
             <FavoriteIcon />
             <li>
               <a href="#"> Wishlist</a>
@@ -161,13 +161,13 @@ const Nav = () => {
           <LisItems onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)} style={{position:"relative" ,width:"100%"}}>
            
-            <li style={{cursor:"pointer"}}>
+            <li style={{cursor:"pointer",display:"flex",alignItems:"center"}}>
              
                 <SwitchAccountIcon />
                 Account
               {/* <div style={{ display: "none" }} className="accounts"> */}
               {isShown && (
-                <div style={{background:"#fff",width:"100%",position:"absolute",zIndex:"100",padding:".5em",borderRadius:"5px",lineHeight:"2em"}} >
+                <div style={{color:"#000",background:"#fff",width:"100%",position:"absolute",zIndex:"100",padding:".5em",borderRadius:"5px",lineHeight:"2em"}} >
 
                   <Link href={"/SignUp"}>
                   <li >Register</li>
@@ -189,7 +189,7 @@ const Nav = () => {
             <Link href={"/products/cart"}>
               <li style={{ cursor: "pointer" ,width:"100%",display:"flex",alignItems:"center"}} >
                 <Badge badgeContent={cart.length} color="primary" >
-                  <ShoppingCartIcon color="action" style={{color:"black"}} />
+                  <ShoppingCartIcon color="white"  />
                   {""}
                 </Badge>
                  <span>Cart</span> 
