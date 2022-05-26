@@ -59,9 +59,7 @@ const LisItems = styled.div`
 
 const Delivery = styled.div`
   width: 100%;
-  
-  background: maroon;
-  margin-bottom:2em;
+  background: blue;
   color: gold;
   display: flex;
   justify-content: center;
@@ -93,28 +91,12 @@ const Img = styled.img`
 `;
 
 const Navigation = styled.div`
-  margin-bottom: 1em;
+ 
   width: 100%;
   top:0;
  
 `;
 
-// const handleThemeChange = ()=>{
-//   setDarkTheme(!darktheme);
-//   if(!darktheme) {
-//     setTheme({
-//       primaryColor:"#1F1D36",
-//       secondaryColor:"#302D4E",
-//       text:"#fff"
-//     })
-//   } else {
-//     setTheme({
-//       primaryColor:"lightgrey",
-//       secondaryColor:"darkgrey",
-//       text:"black"
-//     })
-//   }
-// }
 
 const Nav = () => {
   const {cartState, productState} = useContext(BluecityContext)
@@ -123,15 +105,20 @@ const Nav = () => {
   const [isShown, setIsShown]=useState(false)
 
   useEffect(() => {
-    // Perform localStorage action
     const local = localStorage.getItem(cart.length);
-    // console.log(local);
+   
   }, []);
 
   return (
     <Navigation>
+      <Delivery>
+  <p>For delivery within Nairobi </p>
+  </Delivery>
       
       <Navcontainer>
+
+
+
         <Logocontainer>
           <Link href={"/"}>
             <Image src={img1} />

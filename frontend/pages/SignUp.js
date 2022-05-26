@@ -113,7 +113,7 @@ const SignUp = () => {
                   <label htmlFor="password" style={{marginBottom:"1em"}}>password</label>
 
                   <input style={{width:"100%",border:"2px solid darkgrey"}}
-                    onChange={(e) => onChangePassWord(e)}
+                    // onChange={(e) => onChangePassWord(e)}
                     type="password"
                     className="input"
                     onChange={(e) =>

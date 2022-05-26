@@ -1,5 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Nav from "../src/components/Nav";
+import Footer from "../src/components/Footer";
+import Link from "next/link";
+
 
 const Form=styled.div`
 display:flex;
@@ -25,6 +29,8 @@ const Checkout=()=>{
   
 }
     return(
+      <div>
+        <Nav/>
         <FormHolder >
             <form>
             <div style={{background:"",padding:"2em"}}>
@@ -114,20 +120,22 @@ const Checkout=()=>{
 </div>
 
 </Form>
-<label style={{marginBottom:"2em",fontSize:"1.5rem"}}>
-                  Your Location
+<label style={{marginBottom:"3em",fontSize:"1.5rem"}}>
+                  Your Instraction
                 </label>
 <textarea style={{width:"100%",height:"100px",outline:"none"}}>
 
 </textarea>
 
+
+<Link href={"/SignUp"}>
             <div style={{padding:".5em",display:"flex",justifyContent:"end"}}>
-            <button style={{width:"20%",padding:"1em",background:"maroon",color:"#fff",fontSize:"1rem",border:"none",cursor:"pointer "}}
-               onClick={(e)=>handleCheckout()} >
+            <button style={{width:"20%",padding:"1em",background:"maroon",color:"#fff",fontSize:"1rem",border:"none",cursor:"pointer "}} >
                   Place your Order
                 </button>
                 
                 </div> 
+                </Link>
               
              
 
@@ -140,6 +148,8 @@ const Checkout=()=>{
 
 
         </FormHolder>
+        <Footer/>
+        </div>
     )
 }
 

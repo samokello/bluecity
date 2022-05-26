@@ -72,7 +72,7 @@ const SliderSection = () => {
       <div className="carousel-inner">
         <div className="carousel-item active myimages">
           <img
-            src="images/glasses/glass3.jpg"
+            src="images/slides/aloo.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -80,7 +80,7 @@ const SliderSection = () => {
         </div>
         <div className="carousel-item myimages">
           <img
-            src="images/champagne/slider4.jpg"
+            src="images/slides/ll.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -89,7 +89,7 @@ const SliderSection = () => {
 
         <div className="carousel-item myimages">
           <img
-            src="images/champagne/slider3.jpg"
+            src="images/slides/min.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -98,7 +98,7 @@ const SliderSection = () => {
 
         <div className="carousel-item myimages" style={{}}>
           <img
-            src="images/beer/ll.jpg"
+            src="images/slides/yy.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -107,7 +107,7 @@ const SliderSection = () => {
 
         <div className="carousel-item myimages">
           <img
-            src="images/champagne/slider1.jpg"
+            src="images/slides/mm.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -116,7 +116,7 @@ const SliderSection = () => {
 
         <div className="carousel-item myimages">
           <img
-            src="images/champagne/slider6.jpg"
+            src="images/slides/pp.jpg"
             className="d-block w-100"
             alt="..."
           />
@@ -125,7 +125,7 @@ const SliderSection = () => {
 
         <div className="carousel-item myimages">
           <img
-            src="images/beer/yy.jpg"
+            src="images/slides/ww.jpg"
             className="d-block w-100"
             alt="..."
           />

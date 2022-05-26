@@ -7,10 +7,11 @@ import BluecityContext from "../src/bluecityState";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Footer from "../src/components/Footer";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useRouter } from "next/router";
 
 const Pcontainer = styled.div`
   width: 90%;
-  margin: 0 auto;
+  margin: 2em auto;
   flex-wrap: wrap;
   color: #000;
   display: flex;
@@ -73,12 +74,10 @@ const WhatsappContainer = styled.div`
     height: 60px;
     bottom: 40px;
     right: 40px;
-    background-color: #25d366;
     color: #fff;
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
     z-index: 100;
   }
 
@@ -103,19 +102,19 @@ const WhatsappContainer = styled.div`
 `;
 
 export default function ProductPage() {
-  const [category, setCategory] = useState("");
-
   const [favorite, setFavorite] = useState([]);
   const [productsCopy, setProductsCopy] = useState([]);
 
-  const { cartState, productState } = useContext(BluecityContext);
+  const { cartState, productState, categoryState } = useContext(BluecityContext);
 
   const [cart, setCart] = cartState;
+  const [category, setCategory] = categoryState;
+
 
   const [products, setProducts] = productState;
 
-  const url = "https://immense-peak-73012.herokuapp.com/api/products";
-
+  // const url = "https://immense-peak-73012.herokuapp.com/api/products";
+const url = 'http://localhost:8000/api/products'
   useEffect(() => {
     axios.get(url).then((res) => {
       setProducts(res.data);
@@ -123,6 +122,24 @@ export default function ProductPage() {
 
     setProductsCopy([...products]);
   }, []);
+
+
+
+
+  // const getProducts=()=>{
+  //   fetch("https://immense-peak-73012.herokuapp.com/api/products")
+  //     .then(res=>res.json())
+  //     .then(data=>{
+  //       setProducts(data)
+
+  //     });
+  // }
+
+  // useEffect(()=>{
+  //   getProducts()
+  // },[])
+
+  
 
   // console.log(cart);
 
@@ -145,10 +162,10 @@ export default function ProductPage() {
     alert("You have clicked Favorite icon");
   };
 
-  const removeFavorite = (e) => {};
+  
 
   return (
-    <div>
+    <div >
       <Nav />
       <div
         style={{
@@ -168,16 +185,6 @@ export default function ProductPage() {
           Filter By Category
         </h4>
         <div>
-          {/* <select style={{width:"200px",padding:"1em",fontSize:"1rem",borderRadius:"5px"}}>
-  <option value="A">Wines</option>
-  <option value="B">Vodka</option>
-  <option value="C">Chamagne</option>
-  <option value="D">Beer</option>
-  <option value="E">Whisky</option>
-
-  <option value="F">Cognac</option>
-
-</select> */}
           <div
             style={{
               display: "flex",
@@ -186,46 +193,101 @@ export default function ProductPage() {
               gap: "2em",
             }}
           >
-            {/* <button>All Products</button> */}
             <button
-              style={{ padding: ".5em", cursor: "pointer" }}
+              style={{
+                padding: "1em",
+                cursor: "pointer",
+                fontSize: "1rem",
+                background: "maroon",
+                color: "#fff",
+                borderRadius: "5px",
+                border: "none",
+              }}
               onClick={(e) => handleCheckout(e)}
             >
               All{" "}
             </button>
 
             <button
-              style={{ padding: ".5em", cursor: "pointer" }}
+              style={{
+                padding: "1em",
+                cursor: "pointer",
+                fontSize: "1rem",
+                background: "maroon",
+                color: "#fff",
+                borderRadius: "5px",
+                border: "none",
+              }}
               onClick={(e) => handleCheckout(e)}
             >
               Whisky
             </button>
             <button
-              style={{ padding: ".5em", cursor: "pointer" }}
+              style={{
+                padding: "1em",
+                cursor: "pointer",
+                fontSize: "1rem",
+                background: "maroon",
+                color: "#fff",
+                borderRadius: "5px",
+                border: "none",
+              }}
               onClick={(e) => handleCheckout(e)}
             >
               Wine
             </button>
             <button
-              style={{ padding: ".5em", cursor: "pointer" }}
+              style={{
+                padding: "1em",
+                cursor: "pointer",
+                fontSize: "1rem",
+                background: "maroon",
+                color: "#fff",
+                borderRadius: "5px",
+                border: "none",
+              }}
               onClick={(e) => handleCheckout(e)}
             >
               Beer
             </button>
             <button
-              style={{ padding: ".5em", cursor: "pointer" }}
+              style={{
+                padding: "1em",
+                cursor: "pointer",
+                fontSize: "1rem",
+                background: "maroon",
+                color: "#fff",
+                borderRadius: "5px",
+                border: "none",
+              }}
               onClick={(e) => handleCheckout(e)}
             >
               Vodka
             </button>
             <button
-              style={{ padding: ".5em", cursor: "pointer" }}
+              style={{
+                padding: "1em",
+                cursor: "pointer",
+                fontSize: "1rem",
+                background: "maroon",
+                color: "#fff",
+                borderRadius: "5px",
+                border: "none",
+              }}
               onClick={(e) => handleCheckout(e)}
             >
               Cognac
             </button>
             <button
-              style={{ padding: ".5em", cursor: "pointer" }}
+              style={{
+                padding: "1em",
+                cursor: "pointer",
+                fontSize: "1rem",
+                background: "maroon",
+                color: "#fff",
+                borderRadius: "5px",
+                border: "none",
+              }}
               onClick={(e) => handleCheckout(e)}
             >
               Champagne
@@ -279,49 +341,48 @@ export default function ProductPage() {
               </HotHolder>
             );
           } else if (item.category.toLowerCase() === category.toLowerCase()) {
-
             return (
-            <HotHolder>
-              {/* <ImageContainer> */}
-              <Link href={`/products/${item._id}`}>
-                <Image src={item.image} />
-              </Link>
+              <HotHolder>
+                {/* <ImageContainer> */}
+                <Link href={`/products/${item._id}`}>
+                  <Image src={item.image} />
+                </Link>
 
-              {/* </ImageContainer> */}
+                {/* </ImageContainer> */}
 
-              <Flex>
-                <h3 className="productname">{item.name}</h3>
-                <p>Ksh. {item.salesprice}</p>
-              </Flex>
-              <ButtonHolder>
-                <Link href={"/Checkout"}>
+                <Flex>
+                  <h3 className="productname">{item.name}</h3>
+                  <p>Ksh. {item.salesprice}</p>
+                </Flex>
+                <ButtonHolder>
+                  <Link href={"/Checkout"}>
+                    <Hotbutton
+                      className="shop-btn"
+                      // onClick={(e)=>handleCheckout()}
+                    >
+                      Shop now
+                    </Hotbutton>
+                  </Link>
+
                   <Hotbutton
-                    className="shop-btn"
-                    // onClick={(e)=>handleCheckout()}
+                    onClick={(e) => handleClick(e, item)}
+                    className="addtocart"
                   >
-                    Shop now
+                    {cart.some((cartItem) => cartItem._id === item._id)
+                      ? "Added to cart"
+                      : "Add to cart"}
                   </Hotbutton>
-                </Link>
 
-                <Hotbutton
-                  onClick={(e) => handleClick(e, item)}
-                  className="addtocart"
-                >
-                  {cart.some((cartItem) => cartItem._id === item._id)
-                    ? "Added to cart"
-                    : "Add to cart"}
-                </Hotbutton>
+                  <Link href={"/Favorite"}>
+                    <FavoriteBorderIcon
+                      style={{ color: "red", fontSize: "2rem" }}
+                    />
+                  </Link>
+                </ButtonHolder>
 
-                <Link href={"/Favorite"}>
-                  <FavoriteBorderIcon
-                    style={{ color: "red", fontSize: "2rem" }}
-                  />
-                </Link>
-              </ButtonHolder>
-
-              {/* <input style={{padding:".5em",cursor:"pointer"}} type="button" value="whisky" onClick={(e)=>handleCheckout(item.category)}/> */}
-            </HotHolder>
-            )
+                {/* <input style={{padding:".5em",cursor:"pointer"}} type="button" value="whisky" onClick={(e)=>handleCheckout(item.category)}/> */}
+              </HotHolder>
+            );
           }
         })}
       </Pcontainer>
@@ -333,9 +394,10 @@ export default function ProductPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <WhatsAppIcon />
+          <WhatsAppIcon style={{width:'55',height:'55',background:"#25d366", borderRadius:"50%", boxShadow:"2 2 3 #999;"}}/>
         </a>
-      </WhatsappContainer>
+      </WhatsappContainer> 
+
 
       <Footer />
     </div>

@@ -81,7 +81,7 @@ align-items:center;
 
 
 
-const Categories=()=>{
+const Categories=({categoryHandler})=>{
   
     return(
         < Catcontainer>
@@ -91,17 +91,17 @@ const Categories=()=>{
 <Catflex>
       
         <Cat1 className="positioning">
-            <Catbutton className="catButton">Cognac</Catbutton>
+            <Catbutton className="catButton" onClick={categoryHandler}>Cognac</Catbutton>
         
         </Cat1>
             
         <Cat2 className="positioning">
-            <Catbutton className="catButton">Wines</Catbutton>
+            <Catbutton className="catButton"  onClick={categoryHandler}>Wine</Catbutton>
         
         </Cat2>
 
         <Cat3 className="positioning">
-            <Catbutton className="catButton">Vodka</Catbutton>
+            <Catbutton className="catButton"  onClick={categoryHandler}>Vodka</Catbutton>
         
         </Cat3>
 
@@ -109,17 +109,17 @@ const Categories=()=>{
 
 
         <Cat4 className="positioning">
-            <Catbutton className="catButton">Whisky</Catbutton>
+            <Catbutton className="catButton"  onClick={categoryHandler}>Whisky</Catbutton>
         
         </Cat4>
 
         <Cat5  className="positioning">
-            <Catbutton className="catButton">Champagne</Catbutton>
+            <Catbutton className="catButton"  onClick={categoryHandler}>Champagne</Catbutton>
         
         </Cat5>
 
         <Cat6 className="positioning">
-            <Catbutton className="catButton">Beer</Catbutton>
+            <Catbutton className="catButton"  onClick={categoryHandler}>Beer</Catbutton>
         
         </Cat6>
 

@@ -67,59 +67,20 @@ const SingleImage = styled.div`
   margin: 2em;
 `;
 
-// export const getStaticPaths = async () => {
-
-//   const res = await fetch(
-//     "https://immense-peak-73012.herokuapp.com/api/products"
-//   );
-//   const data = await res.json();
-
-//   const paths = data.map((item) => {
-//     return {
-//       params: { id: item._id.toString() },
-//     };
-//   });
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-
-// };
-
-// export const getStaticProps = async (context) => {
-
-//   const id = context.params.id;
-//   const res = await fetch(
-//     "https://immense-peak-73012.herokuapp.com/api/products/find/" + id
-//   );
-//   const data = await res.json();
-
-//   return {
-//     props: { item: data },
-//   };
-
-// };
-
-// const cartFormLocalStorage=JSON.parse(localStorage.getItem("cart") || "[]")
-
 const Products = () => {
   const { productState, cartState } = useContext(BluecityContext);
   const [cart, setCart] = cartState;
   const [products, setProducts] = productState;
 
-  // const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch("https://immense-peak-73012.herokuapp.com/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-    // if (localStorage.getItem("cart") !== null) {
-    //   return setCart(() => JSON.parse(localStorage.getItem("cart")));
-    // }
+  
   }, []);
 
-  console.log(products);
+
 
   useEffect(() => {
     if (cart.length > 0) {

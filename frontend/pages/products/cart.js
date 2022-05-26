@@ -44,7 +44,6 @@ const Cart = () => {
     const cartItem = modifiedCart.find((item) => item._id == itemId);
     setModifiedCart([...modifiedCart, cartItem]);
 
-    console.log(cartItem);
   };
 
   const handleDecrement = (itemId) => {
@@ -61,10 +60,13 @@ const Cart = () => {
 
     setModifiedCart(cartCopy);
 
-    console.log(itemIndex);
   };
 
-  console.log(modifiedCart);
+
+  
+
+
+  
 
   return (
     <div>

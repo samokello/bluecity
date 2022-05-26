@@ -207,8 +207,8 @@ const Footer =()=>{
 
 
         </Footercontainer>
-        <div style={{background:"maroon",fontSize:"1.5rem",textAlign:"center",color:"#fff"}}>
-  <p style={{marginBottom:"0 !important"}}>  Blue City Invetment LTD &copy; 2022</p>
+        <div style={{background:"blue",fontSize:"1.5rem",textAlign:"center",color:"#fff"}}>
+  <p style={{marginBottom:"0 !important",marginTop:"0 !important",fontSize:"2rem"}}>  Blue City Invetment LTD &copy; 2022</p>
     </div>
         </div>
     )

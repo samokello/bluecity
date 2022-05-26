@@ -7,9 +7,12 @@ import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ProductContext from "../src/ProductState";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import BluecityContext from "../src/bluecityState";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SliderSection from "../src/components/SliderSection";
 import Footer from "../src/components/Footer";
+import { useRouter } from "next/router";
 
 const WhatsappContainer = styled.div`
   .whatsapp_float {
@@ -19,16 +22,15 @@ const WhatsappContainer = styled.div`
     bottom: 40px;
     right: 40px;
     transition: ease background-color 250ms;
-&:hover {
-  transform: translate( -20%,20% );
-  transition: 0.1s ease-in;
-}
-    background-color: #25d366;
+    &:hover {
+      transform: translate(-20%, 20%);
+      transition: 0.1s ease-in;
+    }
+
     color: #fff;
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
     z-index: 100;
   }
 
@@ -52,6 +54,62 @@ const WhatsappContainer = styled.div`
   }
 `;
 
+const Container = styled.div`
+  width: 80%;
+  border: 2px solid darkgrey;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  box-shadow: 2px;
+`;
+
+const Hotbutton = styled.button`
+  border: none;
+  outline: none;
+  padding: 0.5em;
+  margin: 1em;
+  cursor: pointer;
+  padding: 1em;
+  background: maroon;
+  width: 50%%;
+  color: #fff;
+  border-radius: 5px;
+`;
+
+const OfferContainer = styled.div`
+  width: 100%;
+  flex-direction: row;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Offer = styled.div`
+  color: #fff;
+  display: flex;
+  width: 100%;
+`;
+
+const Offerdiv = styled.div`
+  text-align: center;
+  color: #fff;
+  background: green;
+  width: 20%;
+  margin: 1em;
+  border-radius: 5px;
+`;
+const OfferIcons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+`;
+
 // const [darktheme,setDarkTheme]=useState(true)
 //   const [theme,setTheme]=useState({
 //         primaryColor:"#1F1D36",
@@ -59,17 +117,41 @@ const WhatsappContainer = styled.div`
 //         text:"#fff"
 //   })
 
-
 export default function Home() {
   const [products, setProducts] = useState();
-  const [productlist, setProductlist]= useState([]);
-const url="https://immense-peak-73012.herokuapp.com/api/products"
-  useEffect(() => {
-    axios.get(url).then((res) => {
-      setProductlist(res.data);
-    });
-    console.log(productlist)
-  }, [url]);
+  const [productlist, setProductlist] = useState([]);
+  const { cartState, productState, categoryState } =
+    useContext(BluecityContext);
+  const [cart, setCart] = cartState;
+  const router = useRouter();
+  const [category, setCategory] = categoryState;
+
+  const url = "http://localhost:8000/api/products";
+
+  // const url="https://immense-peak-73012.herokuapp.com/api/products"
+  useEffect(
+    (item) => {
+      axios.get(url).then((res) => {
+        setProductlist(res.data);
+      });
+    },
+    [url]
+  );
+
+  const categoryHandler = (e) => {
+    router.push("/ProductsPage");
+    const categoryData = e.target.innerText.toLowerCase();
+
+    setCategory(categoryData);
+  };
+
+  const handleClick = (e, cartItem) => {
+    if (e.target.innerText === "Add to cart") {
+      setCart([...cart, cartItem]);
+      e.target.innerText = "Added to cart";
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -82,9 +164,12 @@ const url="https://immense-peak-73012.herokuapp.com/api/products"
           crossorigin="anonymous"
         ></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;500;700&display=swap" rel="stylesheet"></link>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;500;700&display=swap"
+          rel="stylesheet"
+        ></link>
 
         <link
           rel="stylesheet"
@@ -99,9 +184,158 @@ const url="https://immense-peak-73012.herokuapp.com/api/products"
         ></link>
       </Head>
       <Nav />
-      <SliderSection/>
-      <Categories />
-<Footer/>
+      <SliderSection />
+      <Categories categoryHandler={categoryHandler} />
+
+      <h1 style={{ textAlign: "center" }}>Hot This Month</h1>
+      <div style={{ display: "flex", width: "80%", margin: "0 auto" }}>
+        {productlist.slice(15, 20).map((item) => {
+          return (
+            <OfferContainer>
+              <Container>
+                <Image src={item.image} />
+                <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
+                  {item.name}
+                </p>
+
+                <div style={{ display: "flex" }}>
+                  <Hotbutton
+                    className="shop-btn"
+                    // onClick={(e)=>handleCheckout()}
+                  >
+                    Shop now
+                  </Hotbutton>
+
+                  <Hotbutton
+                    onClick={(e) => handleClick(e, item)}
+                    className="addtocart"
+                  >
+                    {cart.some((cartItem) => cartItem._id === item._id)
+                      ? "Added to cart"
+                      : "Add to cart"}
+                  </Hotbutton>
+                </div>
+              </Container>
+            </OfferContainer>
+          );
+        })}
+      </div>
+
+      <h2 style={{ textAlign: "center", fontSize: "3rem", margin: ".5em" }}>
+        Products onOffers
+      </h2>
+      <Offer>
+        {productlist.map((item) => {
+          if (item.onOffer.toLowerCase() === "true") {
+            return (
+              <div
+                style={{
+                  width: "30%",
+                  border: "1px solid darkgrey",
+                  margin: "1em",
+                  borderRadius: "5px",
+                }}
+              >
+                <Offerdiv>
+                  <p>
+                    {" "}
+                    -{" "}
+                    {Math.floor(
+                      ((item.regularprice - item.salesprice) /
+                        item.regularprice) *
+                        100
+                    )}
+                    %
+                  </p>
+                </Offerdiv>
+
+                <img
+                  src={item.image}
+                  style={{
+                    width: "100%",
+                    objectFit: "contain",
+                    height: "400px",
+                    padding: "2em",
+                  }}
+                />
+
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "2em",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "1.5rem",
+                      textDecoration: "line-through",
+                      color: "red",
+                    }}
+                  >
+                    Ksh: {item.regularprice}
+                  </p>
+                  <p style={{ fontSize: "1.5rem", color: "green" }}>
+                    Ksh: {item.salesprice}
+                  </p>
+                </div>
+
+                <OfferIcons>
+                  <Hotbutton
+                    className="shop-btn"
+                    // onClick={(e)=>handleCheckout()}
+                  >
+                    Shop now
+                  </Hotbutton>
+
+                  <Hotbutton
+                    onClick={(e) => handleClick(e, item)}
+                    className="addtocart"
+                  >
+                    {cart.some((cartItem) => cartItem._id === item._id)
+                      ? "Added to cart"
+                      : "Add to cart"}
+                  </Hotbutton>
+
+                  <Link href={"/Favorite"}>
+                    <FavoriteBorderIcon
+                      style={{
+                        color: "red",
+                        fontSize: "3rem",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </Link>
+                </OfferIcons>
+              </div>
+            );
+          }
+        })}
+      </Offer>
+
+      <Link href={"/ProductsPage"}>
+        <div
+          style={{ padding: ".5em", display: "flex", justifyContent: "end" }}
+        >
+          <button
+            style={{
+              padding: "1em",
+              background: "maroon",
+              color: "#fff",
+              fontSize: "1rem",
+              border: "none",
+              cursor: "pointer ",
+              borderRadius: "5px",
+              width: "10%",
+            }}
+          >
+            Shop More
+          </button>
+        </div>
+      </Link>
+
+      <Footer />
       <WhatsappContainer>
         <a
           href="https://wa.me/254726964415"
@@ -109,9 +343,17 @@ const url="https://immense-peak-73012.herokuapp.com/api/products"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <WhatsAppIcon />
+          <WhatsAppIcon
+            style={{
+              width: "55",
+              height: "55",
+              background: "#25d366",
+              borderRadius: "50%",
+             
+            }}
+          />
         </a>
-      </WhatsappContainer> 
+      </WhatsappContainer>
 
 
     </div>
