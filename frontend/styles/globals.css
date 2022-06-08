@@ -351,6 +351,11 @@ border-radius: 5px;
  
 }
 
+.admin-login{
+  background:linear-gradient(rgba(59, 119, 121, 0.8),rgba(50,112,114,0.8));
+
+}
+
 .login-background{
   background:linear-gradient(rgba(59, 119, 121, 0.8),rgba(50,112,114,0.8)) ,url("../public/images/beer/ll.jpg");
   background-position: center center;

@@ -33,6 +33,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [ConfirmPassWord, setConfirmPassWord] = useState("");
   const [Message, setMessage] = useState("");
+  const [validationMessage, setValidationMessage]=useState({
+    username:false,
+    password:false
+  })
+  const [user, setUser]=useState({
+    username:"",
+    password:""
+  });
 
   const [showPass, setShowPass] = useState(false);
 
@@ -57,8 +65,8 @@ const Login = () => {
     return fetch(url, options)
     .then(res => res.json())
     .then(data => {
-        if (data.code === 11000) {
-            return setMessage("User already Logged in")
+        if (data.username === null) {
+            return setMessage("Wrong Credentials")
         } 
         
         
@@ -74,6 +82,7 @@ const Login = () => {
 
 
 
+
     const data = await fetch(url, options);
 
     console.log(data.json());
@@ -81,6 +90,50 @@ const Login = () => {
 
 
   }
+
+const handleSubmit=async e=>{
+  e.preventDefault()
+  try{
+  if(user.username !==""){
+setValidationMessage({...validationMessage,username:true})
+setValidationMessage({...validationMessage,password:false})
+setValidationMessage({...validationMessage,username:"username is required"})
+
+    }
+    else if (user.password !==""){
+      setValidationMessage({...validationMessage,username:false})
+      setValidationMessage({...validationMessage,password:true})
+      setValidationMessage({...validationMessage,username:"password is required"})
+
+    }
+
+
+else{
+  const data=await fetch("http://localhost:8000/api/auth/login",{
+method:"POST",
+mode:"cors",
+body:JSON.stringify(user),
+headers:{
+  "content-type":"application/json",
+  "accept":"application/json"
+}
+  })
+.catch(err=>console.log(err))
+const result=await data.json()
+if(result.username !==undefined)
+router.push("/admin")
+
+}}
+
+catch(err){
+  console.log(err)
+}
+}
+
+
+
+
+  
 
   function onChangePassWord(e) {
     const passWordValue = e.target.value;

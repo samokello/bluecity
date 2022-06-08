@@ -13,6 +13,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import SliderSection from "../src/components/SliderSection";
 import Footer from "../src/components/Footer";
 import { useRouter } from "next/router";
+import { border } from "@mui/system";
+
 
 const WhatsappContainer = styled.div`
   .whatsapp_float {
@@ -92,7 +94,8 @@ const Image = styled.img`
 const Offer = styled.div`
   color: #fff;
   display: flex;
-  width: 100%;
+  width: 80%;
+  margin:0 auto
 `;
 
 const Offerdiv = styled.div`
@@ -118,6 +121,7 @@ const OfferIcons = styled.div`
 //   })
 
 export default function Home() {
+const [loading, setLoading]=useState(false);
   const [products, setProducts] = useState();
   const [productlist, setProductlist] = useState([]);
   const { cartState, productState, categoryState } =
@@ -198,6 +202,7 @@ export default function Home() {
                   {item.name}
                 </p>
 
+{/* {loading ? productlist : <ReactBootStrap.Spinner animation="border"/>} */}
                 <div style={{ display: "flex" }}>
                   <Hotbutton
                     className="shop-btn"
@@ -222,7 +227,7 @@ export default function Home() {
       </div>
 
       <h2 style={{ textAlign: "center", fontSize: "3rem", margin: ".5em" }}>
-        Products onOffers
+        Products on offer
       </h2>
       <Offer>
         {productlist.map((item) => {

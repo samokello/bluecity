@@ -162,7 +162,15 @@ const url = 'http://localhost:8000/api/products'
     alert("You have clicked Favorite icon");
   };
 
-  
+  <li id="colorChangeOnClick" className="redColor" ></li>
+
+
+ const  handleHighlight=(e)=> {
+    console.log(e.target.elements);
+    e.target.elements.className="newGreenColor";
+ }
+
+
 
   return (
     <div >
@@ -205,6 +213,8 @@ const url = 'http://localhost:8000/api/products'
               }}
               onClick={(e) => handleCheckout(e)}
             >
+
+
               All{" "}
             </button>
 
@@ -295,6 +305,9 @@ const url = 'http://localhost:8000/api/products'
           </div>
         </div>
       </div>
+
+
+
       <Pcontainer>
         {products.map((item) => {
           if (category === "" || category.toLocaleLowerCase() === "all") {
